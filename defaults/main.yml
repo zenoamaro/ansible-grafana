@@ -1,0 +1,51 @@
+---
+# See the [documentation] for help in configuring Grafana.
+# [documentation]: http://grafana.org/docs/
+
+
+# Deploy
+# ------
+
+grafana_version: 1.9.1
+grafana_package: "grafana-{{grafana_version}}"
+grafana_package_url: "http://grafanarel.s3.amazonaws.com/{{grafana_package}}.tar.gz"
+
+grafana_deploy_path: /var/www/grafana
+grafana_deploy_user: www-data
+grafana_deploy_group: www-data
+
+grafana_public_path: "{{grafana_deploy_path}}/{{grafana_package}}"
+grafana_conf_file: "{{grafana_public_path}}/config.js"
+
+
+# Settings
+# --------
+
+grafana_data_sources: []
+
+grafana_search_max_results: 100
+
+# default home dashboard
+grafana_default_route: /dashboard/file/default.json
+
+# set to false to disable unsaved changes warning
+grafana_unsaved_changes_warning: true
+
+# set the default timespan for the playlist feature
+# Example: "1m" "1h"
+grafana_playlist_timespan: 1m
+
+# If you want to specify password before saving, please specify
+# it below The purpose of this password is not security, but to
+# stop some users from accidentally changing dashboards
+grafana_admin_password:
+
+# Change window title prefix from 'Grafana - <dashboard title>'
+grafana_window_title_prefix: 'Grafana - '
+
+# list of plugin panels
+grafana_plugins_panels: []
+
+# requirejs modules in plugins folder that should be loaded
+# for example custom datasources
+grafana_plugins_dependencies: []

@@ -1,0 +1,9 @@
+---
+
+- name: Configure Grafana
+  sudo: "{{grafana_deploy_user}}"
+  template:
+    src: config.js
+    dest: "{{grafana_conf_file}}"
+    owner: "{{grafana_deploy_user}}"
+    group: "{{grafana_deploy_group}}"
