@@ -7,3 +7,7 @@
     dest: "{{grafana_conf_file}}"
     owner: "{{grafana_deploy_user}}"
     group: "{{grafana_deploy_group}}"
+  tags:
+    - conf
+    - grafana
+    - monitoring

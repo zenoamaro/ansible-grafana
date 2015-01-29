@@ -5,12 +5,20 @@
   file:
     dest: "{{grafana_deploy_path}}"
     state: directory
+  tags:
+    - deploy
+    - grafana
+    - monitoring
 
 - name: Download Grafana release tarball
   sudo: yes
   get_url:
     url: "{{grafana_package_url}}"
     dest: "/tmp/{{grafana_package}}.tar.gz"
+  tags:
+    - deploy
+    - grafana
+    - monitoring
 
 - name: Install Grafana from tarball
   sudo: yes
@@ -21,6 +29,6 @@
     owner: "{{grafana_deploy_user}}"
     group: "{{grafana_deploy_group}}"
   tags:
-    - monitoring
-    - grafana
     - deploy
+    - grafana
+    - monitoring
