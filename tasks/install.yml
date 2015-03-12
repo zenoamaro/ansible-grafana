@@ -1,12 +1,12 @@
 ---
 
-- name: Prepare Grafana deploy dir
+- name: Prepare Grafana install dir
   sudo: yes
   file:
     dest: "{{grafana_deploy_path}}"
     state: directory
   tags:
-    - deploy
+    - deps
     - grafana
     - monitoring
 
@@ -16,7 +16,7 @@
     url: "{{grafana_package_url}}"
     dest: "/tmp/{{grafana_package}}.tar.gz"
   tags:
-    - deploy
+    - deps
     - grafana
     - monitoring
 
@@ -29,6 +29,6 @@
     owner: "{{grafana_deploy_user}}"
     group: "{{grafana_deploy_group}}"
   tags:
-    - deploy
+    - deps
     - grafana
     - monitoring
